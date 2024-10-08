@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7767725398390161481}
   - component: {fileID: 8838979705037244891}
   - component: {fileID: 1241408088174583901}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy_Zoombie
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1986291443
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: df5fcc5db1641184eaa609250597f9b5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -167,7 +167,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02467823, y: -0.065808535}
+  m_Offset: {x: -0.1059311, y: -0.065808535}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -178,5 +178,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6322632, y: 1.8115821}
+  m_Size: {x: 0.81973493, y: 1.8115821}
   m_EdgeRadius: 0

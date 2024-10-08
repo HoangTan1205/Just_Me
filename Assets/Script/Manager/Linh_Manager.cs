@@ -12,4 +12,24 @@ public class Linh_Manager : MonoBehaviour
         rig.velocity = move;
 
     }
+
+    public virtual void DetectEnemies( float l_TamDanh , LayerMask E_Layer,bool tanCong = false)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, l_TamDanh, E_Layer);
+        Vector2 rayOrigin = transform.position;
+        Vector2 rayDirection = Vector2.right * l_TamDanh;
+        Color rayColor = hit.collider != null ? Color.red : Color.green; 
+        Debug.DrawLine(rayOrigin, rayOrigin + rayDirection, rayColor);
+        if (hit.collider != null)
+        {
+
+            tanCong = true;
+
+        }
+        else
+        {
+            tanCong = false;
+        }
+    }
+
 }
