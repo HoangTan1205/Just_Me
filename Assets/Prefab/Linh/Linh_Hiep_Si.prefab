@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2421802328323968684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8769642751580795599}
+  m_Layer: 0
+  m_Name: TamDanh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8769642751580795599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2421802328323968684}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.08, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2960232076596294709}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6011962978982047476
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,7 +64,8 @@ Transform:
   m_LocalPosition: {x: -1.21, y: -0.69000006, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8769642751580795599}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7472906714609674908
@@ -76,8 +108,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5194f5ba234309f418578b6e1e1cc1e1, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: -1081133680, guid: 5194f5ba234309f418578b6e1e1cc1e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -168,10 +200,10 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.065808535, y: 0.20565158}
+  m_Offset: {x: -0.28014684, y: 1.2761061}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 2.1484375, y: 2.3359375}
     newSize: {x: 2.1484375, y: 2.3359375}
     adaptiveTilingThreshold: 0.5
@@ -179,7 +211,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6548734, y: 1.9246343}
+  m_Size: {x: 1.2261968, y: 1.8465219}
   m_EdgeRadius: 0
 --- !u!114 &918720512308558524
 MonoBehaviour:
@@ -195,3 +227,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rig: {fileID: 5474730252346455131}
   move: 250
+  DoKC: {fileID: 8769642751580795599}
+  TamDanh: 0.7
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  isAttacking: 0
+  ani: {fileID: 6643069220588873581}

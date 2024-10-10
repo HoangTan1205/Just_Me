@@ -33,7 +33,9 @@ Transform:
   m_LocalPosition: {x: 0.5500001, y: -0.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6872856333235560118}
+  - {fileID: 4495429371307472137}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8751434047959371291
@@ -76,13 +78,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 72ca57e53100cf94bb30ac93b433266e, type: 3}
+  m_SortingOrder: 4
+  m_Sprite: {fileID: 142908227, guid: 72ca57e53100cf94bb30ac93b433266e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.9453125, y: 3.4140625}
+  m_Size: {x: 1.9635416, y: 2.2760417}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -168,18 +170,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.2550081, y: 0.23855576}
+  m_Offset: {x: 0.23144889, y: 1.3477699}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 1.9635416, y: 2.2760417}
-    newSize: {x: 2.9453125, y: 3.4140625}
+    newSize: {x: 1.9635416, y: 2.2760417}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4535254, y: 1.7989299}
+  m_Size: {x: 1.4064069, y: 1.7257321}
   m_EdgeRadius: 0
 --- !u!114 &5477762739550934764
 MonoBehaviour:
@@ -193,3 +195,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02bf35ac9a8f0446931e7a598e753f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rig: {fileID: 3744509368005235000}
+  move: 250
+  ani: {fileID: 449086131360102726}
+  TamDanh: 5
+  DoKC: {fileID: 6872856333235560118}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  isAttacking: 0
+  Shuriken: {fileID: 3301685419205244598, guid: 5f630656866e0ab46a1bd7b37d177f49, type: 3}
+  ViTriBanDan: {fileID: 4495429371307472137}
+--- !u!1 &5830580084313708947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6872856333235560118}
+  m_Layer: 0
+  m_Name: 'TamDanh '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6872856333235560118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5830580084313708947}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.42, y: 1.31, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8031569566345049353}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8788721155871808103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4495429371307472137}
+  m_Layer: 0
+  m_Name: ViTriNem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4495429371307472137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8788721155871808103}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.09, y: 1.13, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8031569566345049353}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

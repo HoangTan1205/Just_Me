@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2596358813315530110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2965005931967615300}
+  m_Layer: 0
+  m_Name: TamDanh (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2965005931967615300
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2596358813315530110}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.65, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7680863163586921629}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5327990710211153757
 GameObject:
   m_ObjectHideFlags: 0
@@ -35,6 +66,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2058653963666937787}
+  - {fileID: 2965005931967615300}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9105833913978183234
@@ -77,8 +109,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9a35248a3f4f4594780cc5b2200b50c1, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: -507199424, guid: 9a35248a3f4f4594780cc5b2200b50c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -169,10 +201,10 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.2879125, y: 0}
+  m_Offset: {x: -0.31720495, y: 0.786577}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 1.9023438, y: 1.5859375}
     newSize: {x: 1.9023438, y: 1.5859375}
     adaptiveTilingThreshold: 0.5
@@ -180,7 +212,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3265188, y: 1.5859375}
+  m_Size: {x: 1.2679338, y: 1.5894742}
   m_EdgeRadius: 0
 --- !u!114 &982503663067088720
 MonoBehaviour:
@@ -194,7 +226,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0361ccece8ac92c49a8a6e367f8f41dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rig: {fileID: 5015252645793080820}
   move: 250
+  ani: {fileID: 7484759841755056801}
+  TamDanh: 5
+  DoKC: {fileID: 2965005931967615300}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  isAttacking: 0
+  VienDan: {fileID: 3184274551788466066, guid: 3e2ff647861f72f428c8d25c8a45d58c, type: 3}
+  ViTriBanDan: {fileID: 2058653963666937787}
 --- !u!1 &8512698403795650130
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +262,7 @@ Transform:
   m_GameObject: {fileID: 8512698403795650130}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.03, y: -0.41, z: 0}
+  m_LocalPosition: {x: 1.01, y: 0.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -1,11 +1,12 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Dan : Linh_Manager
 {
-    public Rigidbody2D rb;
-    private float move = 1000f;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private float move = 1500f;
+    [SerializeField] private float damage = 5f;
 
     void Start()
     {
@@ -18,9 +19,17 @@ public class Dan : Linh_Manager
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Linh"))
         {
-            Destroy(gameObject,0.2f); 
+            IDamageable damageable = collision.GetComponent<IDamageable>();
+            
+            if (damageable != null)
+            {
+                Debug.Log("TrungDOn");
+                //damageable.TrungDon(damage);
+            }
+            move = 0f;
+            Destroy(gameObject,0.05f); 
         }
     }
 }
