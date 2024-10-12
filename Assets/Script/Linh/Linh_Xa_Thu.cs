@@ -1,26 +1,39 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Linh_Xa_Thu : Linh_Manager
 {
+    [SerializeField] int ID_Linh = 2;
     [SerializeField] private Rigidbody2D rig;
-    [SerializeField] private float move = 250f;
     [SerializeField] private Animator ani;
-    [SerializeField] private float TamDanh = 5f;
     [SerializeField] private Transform DoKC;
+
+    [SerializeField] private float move;
+    [SerializeField] private float tamDanh;
+    [SerializeField] private float hp_Max;
 
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private bool isAttacking = false;
     [SerializeField] private GameObject VienDan;
     [SerializeField] private Transform ViTriBanDan;
 
- 
+    [SerializeField] private float HP_HienCo;        // Máu hiện tại của enemy
+    [SerializeField] private Slider HP_Slider;     // Slider UI của thanh máu
+
+
 
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
+        ani = GetComponent<Animator>();
+        move = MoveSpeed(ID_Linh);
+        tamDanh = TamDanh(ID_Linh);
+        hp_Max = HP(ID_Linh);
+
+        ThanhMau(hp_Max, HP_HienCo, HP_Slider);
+        HP_HienCo = HP_Slider.value;
     }
 
 
@@ -28,9 +41,9 @@ public class Linh_Xa_Thu : Linh_Manager
     {
         Move(Vector2.right, move, rig);
 
-        DetectEnemies(DoKC,TamDanh, enemyLayer, isAttacking);
+        DetectEnemies(DoKC,Vector2.right, tamDanh, enemyLayer, isAttacking);
 
-        if (DetectEnemies(DoKC,TamDanh, enemyLayer, isAttacking)  )
+        if (DetectEnemies(DoKC,Vector2.right, tamDanh, enemyLayer, isAttacking)  )
         {
             Attack();
         }

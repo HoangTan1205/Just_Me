@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Dan : Linh_Manager
 {
+    [SerializeField] int ID = 2;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float move = 1500f;
-    [SerializeField] private float damage = 5f;
+    [SerializeField] private float damage;
 
     void Start()
     {
         Destroy(gameObject, 3f);
+        damage = Atk(ID);
     }
 
     void Update()
@@ -21,15 +23,14 @@ public class Dan : Linh_Manager
     {
         if (collision.gameObject.CompareTag("Linh"))
         {
-            IDamageable damageable = collision.GetComponent<IDamageable>();
-            
-            if (damageable != null)
+            ThanhMau healthBar = collision.gameObject.GetComponent<ThanhMau>();
+            if (healthBar != null)
             {
-                Debug.Log("TrungDOn");
-                //damageable.TrungDon(damage);
+                healthBar.TakeDamage(damage);  // Gọi hàm trừ máu khi va chạm
             }
             move = 0f;
             Destroy(gameObject,0.05f); 
         }
+
     }
 }

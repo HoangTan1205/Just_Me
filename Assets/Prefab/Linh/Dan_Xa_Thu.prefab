@@ -171,5 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8da4a6f8d634e14409bf98843daa3dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: bb89d01ac51076146aa36648829c928a, type: 2}
+  ID: 2
   rb: {fileID: 1518846489979435512}
   move: 1500
+  damage: 0

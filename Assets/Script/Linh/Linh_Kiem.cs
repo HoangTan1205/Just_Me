@@ -6,34 +6,43 @@ using UnityEngine.UI;
 
 public class Linh_Kiem : Linh_Manager
 {
+    [SerializeField] int ID_Linh = 1;
     [SerializeField] private Rigidbody2D rig ;
-    [SerializeField] private float move = 250f;
+    [SerializeField] private Animator ani;
 
-    [SerializeField] private float TamDanh = 0.95f;
+    [SerializeField] private float move ;
+    [SerializeField] private float tamDanh ;
+    [SerializeField] private float hp_Max ;
+      // Máu tối đa của enemy   
+    [SerializeField] private float HP_HienCo;        // Máu hiện tại của enemy
+    [SerializeField] private Slider HP_Slider;     // Slider UI của thanh máu
+
     [SerializeField] private Transform DoKC;
     [SerializeField] private LayerMask enemyLayer; 
     [SerializeField] private bool isAttacking = false;
-    [SerializeField] private Animator ani;
 
-    [SerializeField] private float HP_Max = 50f;      // Máu tối đa của enemy   
-    [SerializeField] private float HP_HienTai;        // Máu hiện tại của enemy
-    [SerializeField] private Slider HP_Slider;     // Slider UI của thanh máu
 
 
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
-        
+        ani = GetComponent<Animator>();
+        move = MoveSpeed(ID_Linh);
+        tamDanh = TamDanh(ID_Linh);
+        hp_Max = HP(ID_Linh);
+
+        ThanhMau(hp_Max,HP_HienCo, HP_Slider);
+        HP_HienCo = HP_Slider.value;
     }
 
 
     void Update()
     {
         Move(Vector2.right, move,rig);
-        ThanhMau(HP_Max, HP_HienTai,  HP_Slider );
+        
+        Mau_HienTai();
 
-
-        if (DetectEnemies(DoKC,TamDanh, enemyLayer, isAttacking))
+        if (DetectEnemies(DoKC,Vector2.right, tamDanh, enemyLayer, isAttacking))
         {
             Attack();
         } 
@@ -52,28 +61,26 @@ public class Linh_Kiem : Linh_Manager
     }
     void Run()
     {
-        move = 250f;
+        move = MoveSpeed(ID_Linh);
         ani.SetBool("Atk", false);
        
 
     }
-    public void TrungDon(float damage)
+    public void Mau_HienTai()
     {
-        Debug.Log("TrungDon "+ damage);
-        HP_HienTai -= damage;
-        HP_Slider.value = HP_HienTai;
-        
+        HP_Slider.value = HP_HienCo;
 
-        if (HP_HienTai <= 0)
+        if (HP_HienCo <= 0)
         {
             Die();
         }
     }
 
     void Die()
-    {        
+    {
+        move = 0f;
         ani.SetBool("Die",true);
-        Destroy(gameObject,0.5f);
+        Destroy(gameObject,3);
 
     }
 }
