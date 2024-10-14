@@ -1,0 +1,5 @@
+id	uerName··	Pass·	lv	diemCao	sound
+1	tan	tan123	4	100	1
+2	htan	htan123	2	300	1
+3	admin	admin123	3	50	0
+4	unlock	unlock123	15	1500	0
