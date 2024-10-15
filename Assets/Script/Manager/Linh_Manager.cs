@@ -42,7 +42,6 @@ public class Linh_Manager : MonoBehaviour
     {
         void TrungDon(float damage);
     }
-
     public float HP(int id)
     {
         var tim = data.tableObjects.FirstOrDefault(s => s.Id == id);
@@ -54,13 +53,11 @@ public class Linh_Manager : MonoBehaviour
         return tim.Dmg;
 
     }
-
     public float MoveSpeed(int id)
     {
         var tim = data.tableObjects.FirstOrDefault(s => s.Id == id);
         return tim.TocDoChay;
     }
-
     public float AtkSpeed(int id)
     {
         var tim = data.tableObjects.FirstOrDefault(s => s.Id == id);
@@ -73,7 +70,5 @@ public class Linh_Manager : MonoBehaviour
         return tim.TamBan;
 
     }
-
-
 
 }

@@ -11,9 +11,13 @@ public class Enemy_Manager : MonoBehaviour
 {
     public List<ChiSoEnemy> listTTE = new List<ChiSoEnemy>();
     public Scr_Table_Object data;
-    private void Start()
+    private void Awake()
     {
         LoadTextLinh("Enemy");
+    }
+    private void Start()
+    {
+        
     }
 
     public void LoadTextLinh(string path)

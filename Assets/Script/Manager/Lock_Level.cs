@@ -5,21 +5,20 @@ using TMPro;
 using UnityEngine.UI;
 public class Lock_Level : MonoBehaviour
 {
-    public Input_Login data;
+    public Scr_User_Login dtLogin;
     public int checkd;
     public Button[] levelButtons;
 
     private void Awake()
-    {
-        data = FindFirstObjectByType<Input_Login>();
-        checkd = data.levelUser;
+    {        
+        checkd = dtLogin.levelUser;
         UnlockLevels();
     }
 
     public void OnButtonCheck()
     {
-        data = FindFirstObjectByType<Input_Login>();
-        checkd = data.levelUser;
+
+        checkd = dtLogin.levelUser;
         UnlockLevels();
     }
     void UnlockLevels()

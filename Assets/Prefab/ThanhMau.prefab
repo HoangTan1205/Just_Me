@@ -195,6 +195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3724806145811090266}
+  - component: {fileID: 4097658461693528463}
   m_Layer: 0
   m_Name: ThanhMau
   m_TagString: Untagged
@@ -218,6 +219,19 @@ Transform:
   - {fileID: 7919411024196577635}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4097658461693528463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6448540227391322247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6100942b820ae2e4cae6692b6b489ec5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 6719785760598357945}
 --- !u!1 &6701492244990860631
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +344,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7712985109019854775}
   - component: {fileID: 6719785760598357945}
-  - component: {fileID: 6933539529725181688}
   m_Layer: 5
   m_Name: HP
   m_TagString: Untagged
@@ -410,16 +423,3 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6933539529725181688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8334046487468948329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6100942b820ae2e4cae6692b6b489ec5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 0}

@@ -37,8 +37,6 @@ public class Start_Manager : MonoBehaviour
 
         }
     }
-
-
 }
 [System.Serializable]
 public class In4User

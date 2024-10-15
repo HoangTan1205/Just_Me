@@ -21,7 +21,7 @@ public class Zombie : Linh_Manager
 
 
 
-    void Start()
+    void Awake()
     {
         rig = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();

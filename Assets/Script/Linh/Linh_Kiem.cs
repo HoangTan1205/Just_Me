@@ -35,7 +35,6 @@ public class Linh_Kiem : Linh_Manager
         HP_HienCo = HP_Slider.value;
     }
 
-
     void Update()
     {
         Move(Vector2.right, move,rig);
@@ -52,8 +51,6 @@ public class Linh_Kiem : Linh_Manager
         }
         
     }
-    
-
     void Attack()
     {
         move = 0f;
@@ -81,6 +78,5 @@ public class Linh_Kiem : Linh_Manager
         move = 0f;
         ani.SetBool("Die",true);
         Destroy(gameObject,3);
-
     }
 }

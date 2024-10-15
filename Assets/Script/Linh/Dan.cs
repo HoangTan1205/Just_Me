@@ -11,7 +11,7 @@ public class Dan : Linh_Manager
 
     void Start()
     {
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 5f);
         damage = Atk(ID);
     }
 
@@ -21,9 +21,9 @@ public class Dan : Linh_Manager
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Linh"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            ThanhMau healthBar = collision.gameObject.GetComponent<ThanhMau>();
+            ThanhMau healthBar = collision.gameObject.GetComponentInChildren<ThanhMau>();
             if (healthBar != null)
             {
                 healthBar.TakeDamage(damage);  // Gọi hàm trừ máu khi va chạm

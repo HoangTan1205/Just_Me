@@ -45,9 +45,9 @@ GameObject:
   - component: {fileID: 5015252645793080820}
   - component: {fileID: 6121160960309558593}
   - component: {fileID: 1923032560768093265}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Linh_Xa_Thu
-  m_TagString: Untagged
+  m_TagString: Linh
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65,9 +65,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8042770241471803382}
   - {fileID: 2058653963666937787}
   - {fileID: 2965005931967615300}
-  - {fileID: 8042770241471803382}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9105833913978183234
@@ -288,7 +288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3724806145811090266, guid: ab55d745d20691d4c88bc22fedc30e54, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.2
+      value: 2.095
       objectReference: {fileID: 0}
     - target: {fileID: 3724806145811090266, guid: ab55d745d20691d4c88bc22fedc30e54, type: 3}
       propertyPath: m_LocalPosition.z

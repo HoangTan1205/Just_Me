@@ -174,5 +174,5 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: bb89d01ac51076146aa36648829c928a, type: 2}
   ID: 2
   rb: {fileID: 1518846489979435512}
-  move: 1500
+  move: 2000
   damage: 0

@@ -58,8 +58,7 @@ public class Linh_Xa_Thu : Linh_Manager
     {
         move = 0f;
         ani.SetBool("Atk", true);
-        
-        
+              
 
     }
     void Run()

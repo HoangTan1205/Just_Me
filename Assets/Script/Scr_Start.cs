@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "DataUser", menuName = ("ThongTin"), order = 1)]
+[CreateAssetMenu(fileName = "DataUser", menuName = ("ThongTin/Data"), order = 1)]
 public class Scr_Start : ScriptableObject
 {
     public List<InforUser> List_User = new List<InforUser>();

@@ -13,6 +13,7 @@ public class ThanhMau : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
+
         float currentHealth = slider.value;
         currentHealth -= damage;  // Trừ sát thương vào máu hiện tại       
         slider.value = currentHealth;  // Cập nhật thanh máu
