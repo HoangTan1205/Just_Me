@@ -13,7 +13,6 @@ public class Input_Login : MonoBehaviour
     public Scr_Start dataUser;
     public Scr_User_Login userLogin;
 
-    
     public TextMeshProUGUI hienTTUserName;
     public TextMeshProUGUI LvUser;
     public TextMeshProUGUI hienTTDiemCao;
@@ -21,19 +20,25 @@ public class Input_Login : MonoBehaviour
     public GameObject Menu;
     public GameObject Login;
 
+    private void Awake()
+    {
+        hienTTUserName.text = "Tên Đăng Nhập: " + userLogin.userName;
+        LvUser.text = "Màn Chơi Hiện Tại: " + userLogin.levelUser.ToString();
+        hienTTDiemCao.text = "Điểm Cao: " + userLogin.diemCao.ToString();
+    }
     void Start()
     {
         
     }
 
-    public void OnLoginButton()
+    public void DangNhap()
     {
         string username = usernameField.text;
         string password = passwordField.text;
         if (CheckInput(username, password))
         {
             messageText.text = "Đăng nhập thành công! Đang tải dữ liệu...";
-            
+            SetDangNhap();
         }
         else
         {
@@ -41,6 +46,11 @@ public class Input_Login : MonoBehaviour
         }
     }
 
+    private void SetDangNhap()
+    {
+        Menu.SetActive(true);
+        Login.SetActive(false);
+    }
     private bool CheckInput(string username, string password)
     {
         var user = dataUser.List_User.FirstOrDefault(u => u.UserName == username && u.Pass == password);
@@ -110,12 +120,8 @@ public class Input_Login : MonoBehaviour
         }
         return false;
     }
-    private void SetActiveMenu()
-    {
-        Login.gameObject.SetActive(false);
-        Menu.gameObject.SetActive(true);       
-    }
-
+    
+    
     private void ClearInput()
     {
         usernameField.text = "";

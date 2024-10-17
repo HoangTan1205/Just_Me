@@ -234,7 +234,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 528
+  spritePixelsToUnits: 512
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -268,6 +268,19 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -329,11 +342,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 244
-        y: 1625
+        y: 1629
         width: 83
-        height: 103
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 99
+      alignment: 9
+      pivot: {x: 0.5000007, y: 0.0012467764}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -353,8 +366,8 @@ TextureImporter:
         y: 1622
         width: 89
         height: 112
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.50490135, y: 0.0014016287}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -523,7 +536,7 @@ TextureImporter:
         height: 129
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 19, y: 22, z: 18, w: 16}
+      border: {x: 21, y: 24, z: 19, w: 15}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -859,7 +872,7 @@ TextureImporter:
         height: 926
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 48, y: 55, z: 47, w: 42}
+      border: {x: 47, y: 55, z: 47, w: 45}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -875,12 +888,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2166
-        y: 660
+        y: 666
         width: 616
-        height: 798
+        height: 792
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 70, y: 70, z: 70, w: 70}
+      border: {x: 31, y: 35, z: 33, w: 27}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1573,7 +1586,7 @@ TextureImporter:
         height: 165
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 200, y: 0, z: 200, w: 0}
+      border: {x: 85, y: 44, z: 83, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1587,7 +1600,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d33294906472d9846af6c72c17f87eef
+    spriteID: 88f9397c03179fb419e6a8a34465ea5b
     internalID: 0
     vertices: []
     indices: 

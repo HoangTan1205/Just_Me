@@ -5,17 +5,23 @@ using UnityEngine.UI;
 public class ThanhMau : MonoBehaviour
 {
     [SerializeField] private Slider slider;
-
-    private void Start()
+    [SerializeField] float currentHealth;
+    private void Awake()
     {
-        slider = GetComponent<Slider>();
+        currentHealth = slider.value;
+        slider = GetComponentInChildren<Slider>();
         
     }
+    private void Start()
+    {
+        
+        
+
+    }
+    [SerializeField]
     public void TakeDamage(float damage)
     {
-
-        float currentHealth = slider.value;
-        currentHealth -= damage;  // Trừ sát thương vào máu hiện tại       
+        currentHealth -= damage;         
         slider.value = currentHealth;  // Cập nhật thanh máu
        
     }

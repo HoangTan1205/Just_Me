@@ -12,6 +12,19 @@ public class SceneManager : MonoBehaviour
     public List<ThongTin> listTT = new List<ThongTin>();
     public Scr_Table_Object data;
     //public List<Scr_Table_Object.TableObject> ListData;
+    void Awake()
+    {
+
+        //  if (FindObjectsOfType<SceneManager>().Length > 1)
+        //  {
+        //      Destroy(gameObject);
+        //  }
+        //  else
+        //  {
+        //      DontDestroyOnLoad(gameObject); // Giữ lại đối tượng này khi chuyển scene
+        //  }
+
+    }
     private void Start()
     {
         //ListData = new List<Scr_Table_Object.TableObject>();
@@ -42,8 +55,10 @@ public class SceneManager : MonoBehaviour
         }        
     }
 
-    
-
+    internal static object GetActiveScene()
+    {
+        throw new NotImplementedException();
+    }
 }
 [System.Serializable]
 public class ThongTin

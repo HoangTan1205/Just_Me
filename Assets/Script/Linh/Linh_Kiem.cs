@@ -65,7 +65,7 @@ public class Linh_Kiem : Linh_Manager
     }
     public void Mau_HienTai()
     {
-        HP_Slider.value = HP_HienCo;
+        //HP_Slider.value = HP_HienCo;
 
         if (HP_HienCo <= 0)
         {

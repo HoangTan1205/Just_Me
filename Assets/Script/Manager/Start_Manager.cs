@@ -1,20 +1,62 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using static Scr_Start;
-
+using static Scr_User_Login;
 public class Start_Manager : MonoBehaviour
 {
     [SerializeField] private List<In4User> listTTUser = new List<In4User>();
     [SerializeField] private Scr_Start data;
+    [SerializeField] private Scr_User_Login u_login;
     [SerializeField] private string file;
 
+    [SerializeField] private GameObject Menu;
+    [SerializeField] private GameObject Login;
+
+    public TextMeshProUGUI hienTTUserName;
+    public TextMeshProUGUI LvUser;
+    public TextMeshProUGUI hienTTDiemCao;
+
+    
+    void Awake()
+    {
+
+        CheckTK();
+    
+    }
     private void Start()
     {
         file = "User";
         LoadTextLinh(file);
 
+        
+
+    }
+    private void CheckTK()
+    {
+        SetActiveMenu();
+        if (u_login.idUser != 0)
+        {
+            hienTTUserName.text = "Tên Đăng Nhập: " + u_login.userName;
+            LvUser.text = "Màn Chơi Hiện Tại: " + u_login.levelUser.ToString();
+            hienTTDiemCao.text = "Điểm Cao: " + u_login.diemCao.ToString();         
+        }
+    }
+    private void SetActiveMenu()
+    {
+        if (u_login.idUser != 0)
+        {
+            Menu.SetActive(true);
+            Login.SetActive(false);
+        }
+        else
+        {
+            Menu.SetActive(false);
+            Login.SetActive(true);
+            
+        }
     }
     public void LoadTextLinh(string path)
     {
@@ -32,8 +74,12 @@ public class Start_Manager : MonoBehaviour
             tt.DiemCao = Convert.ToInt32(cols[4]);
             tt.AmThanh = Convert.ToInt32(cols[5]);
             listTTUser.Add(tt);
-            InforUser list = new InforUser(tt.Id, tt.UserName, tt.Pass, tt.Level, tt.DiemCao, tt.AmThanh);
-            data.List_User.Add(list);
+
+            if (data.List_User.Count < listTTUser.Count)
+            {
+                InforUser list = new InforUser(tt.Id, tt.UserName, tt.Pass, tt.Level, tt.DiemCao, tt.AmThanh);
+                data.List_User.Add(list);
+            }
 
         }
     }

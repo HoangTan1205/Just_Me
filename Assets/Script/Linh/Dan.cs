@@ -23,13 +23,17 @@ public class Dan : Linh_Manager
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            move = 0f;
+            Destroy(gameObject, 0.05f);
+
             ThanhMau healthBar = collision.gameObject.GetComponentInChildren<ThanhMau>();
+           
             if (healthBar != null)
             {
+                
                 healthBar.TakeDamage(damage);  // Gọi hàm trừ máu khi va chạm
             }
-            move = 0f;
-            Destroy(gameObject,0.05f); 
+             
         }
 
     }
