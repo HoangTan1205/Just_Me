@@ -26,6 +26,7 @@ public class Buton_Linh : MonoBehaviour
 
     public Scr_Load_Price_Linh price_Linh;
     public List<Price_Linh> list_price = new List<Price_Linh>();
+    public int tangtoc = 1;
     private void Awake()
     {        
         LoadPrice("Price_Linh");
@@ -99,12 +100,25 @@ public class Buton_Linh : MonoBehaviour
     {
         Time.timeScale = 1;
     }
-
+    public void TangToc()
+    {
+        Image nut = gameObject.GetComponent<Image>();
+        tangtoc++;      
+        if (tangtoc % 2==0)
+        {   
+            Time.timeScale = 2f;  
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            
+        }
+    }
     public void ChoiLai()
     {
         
-        UnityEngine.SceneManagement.SceneManager.LoadScene(level);
         Time.timeScale = 1f; // Đảm bảo game tiếp tục chạy sau khi tải lại
+        UnityEngine.SceneManagement.SceneManager.LoadScene(level);
     }
     public void VeHome()
     {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,22 +9,22 @@ using UnityEngine.UI;
 public class Linh_Manager : MonoBehaviour
 {
     public Scr_Table_Object data;
-    // Hàm di chuyển
+    
     public virtual void Move(Vector2 direction, float moveSpeed, Rigidbody2D rig)
     {
         Vector3 move = new Vector3(direction.x, direction.y,0) * moveSpeed * Time.deltaTime;
         rig.velocity = move;
     }
 
-    public virtual bool DetectEnemies( Transform NoiBD, Vector2 huong, float l_TamDanh , LayerMask E_Layer, bool tanCong = false)
+    public virtual bool DetectEnemies( Transform NoiBD, Vector2 huong, float l_TamDanh , LayerMask E_Layer,  bool tanCong = false )
     {
         RaycastHit2D hit = Physics2D.Raycast(NoiBD.position, huong, l_TamDanh, E_Layer);
         Vector2 rayOrigin = NoiBD.position;
         Vector2 rayDirection = huong * l_TamDanh;
         Color rayColor = hit.collider != null ? Color.red : Color.green; 
         Debug.DrawLine(rayOrigin, rayOrigin + rayDirection, rayColor);
-        if (hit.collider != null)
-        {
+        if (hit.collider != null) 
+        { 
             tanCong = true;
         }
         else
@@ -32,6 +33,29 @@ public class Linh_Manager : MonoBehaviour
         }
         return tanCong;
     }
+
+    public virtual void GayDame(Transform NoiBD, Vector2 huong, float l_TamDanh, LayerMask E_Layer, float dmg, string kethu)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(NoiBD.position, huong, l_TamDanh, E_Layer);
+        Vector2 rayOrigin = NoiBD.position;
+        Vector2 rayDirection = huong * l_TamDanh;
+        
+        if (hit.collider != null)
+        {
+            if (hit.collider.CompareTag(kethu))
+            {
+                // Lấy component Health của kẻ thù và gây sát thương
+                ThanhMau enemyHealth = hit.collider.GetComponentInChildren<ThanhMau>();
+                if (enemyHealth != null)
+                {
+                    enemyHealth.TakeDamage(dmg);
+                }
+            }
+            
+        }
+               
+    }
+
     public virtual void ThanhMau( float maxHealth , float currentHealth, Slider healthBarSlider )
     {
         healthBarSlider.maxValue = maxHealth;
@@ -51,8 +75,8 @@ public class Linh_Manager : MonoBehaviour
     {
         var tim = data.tableObjects.FirstOrDefault(s => s.Id == id);
         return tim.Dmg;
-
     }
+    
     public float MoveSpeed(int id)
     {
         var tim = data.tableObjects.FirstOrDefault(s => s.Id == id);

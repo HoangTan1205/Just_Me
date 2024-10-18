@@ -22,7 +22,7 @@ public class Linh_Xa_Thu : Linh_Manager
     [SerializeField] private float HP_HienCo;        // Máu hiện tại của enemy
     [SerializeField] private Slider HP_Slider;     // Slider UI của thanh máu
 
-
+    [SerializeField] private bool live = true;
 
     void Start()
     {
@@ -34,6 +34,7 @@ public class Linh_Xa_Thu : Linh_Manager
 
         ThanhMau(hp_Max, HP_HienCo, HP_Slider);
         HP_HienCo = HP_Slider.value;
+
     }
 
 
@@ -43,13 +44,20 @@ public class Linh_Xa_Thu : Linh_Manager
 
         DetectEnemies(DoKC,Vector2.right, tamDanh, enemyLayer, isAttacking);
 
+        Mau_HienTai();
         if (DetectEnemies(DoKC,Vector2.right, tamDanh, enemyLayer, isAttacking)  )
         {
-            Attack();
+            if (live)
+            {
+                Attack();
+            }
         }
         else
         {
-            Run();
+            if (live)
+            {
+                Run();
+            }
         }
 
 
@@ -70,5 +78,22 @@ public class Linh_Xa_Thu : Linh_Manager
     void BanDan()
     {
         GameObject Dan = Instantiate(VienDan, ViTriBanDan.position, Quaternion.identity);
+    }
+    void Die()
+    {
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        move = 0f;
+        ani.SetTrigger("Die");
+        Destroy(gameObject, 1.5f);
+    }
+    public void Mau_HienTai()
+    {
+       
+        if (HP_Slider.value <= 0)
+        {
+            isAttacking = false;
+            live = false;
+            Die();
+        }
     }
 }

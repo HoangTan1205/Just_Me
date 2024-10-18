@@ -20,10 +20,15 @@ public class Tho : Linh_Manager
     [SerializeField] private bool isAttacking = false;
     [SerializeField] private GameObject VienDan;
     [SerializeField] private Transform ViTriBanDan;
-
+    [SerializeField] private bool live = true;
 
 
     void Awake()
+    {
+        
+    }
+
+    private void Start()
     {
         rig = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
@@ -34,8 +39,6 @@ public class Tho : Linh_Manager
         ThanhMau(hp_Max, HP_HienCo, HP_Slider);
         HP_HienCo = HP_Slider.value;
     }
-
-
     void Update()
     {
         Move(Vector2.left, move, rig);
@@ -44,11 +47,17 @@ public class Tho : Linh_Manager
 
         if (DetectEnemies(DoKC, Vector2.left, tamDanh, Linh_Layer, isAttacking))
         {
-            Attack();
+            if (live)
+            {
+                Attack();
+            }
         }
         else
         {
-            Run();
+            if (live)
+            {
+                Run();
+            }
         }
 
     }
@@ -66,22 +75,24 @@ public class Tho : Linh_Manager
 
 
     }
-    public void Mau_HienTai()
-    {
-        HP_Slider.value = HP_HienCo;
 
-        if (HP_HienCo <= 0)
-        {
-            Die();
-        }
-    }
 
     void Die()
     {
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
         move = 0f;
-        ani.SetBool("Die", true);
-        Destroy(gameObject, 3);
+        ani.SetTrigger("Die");
+        Destroy(gameObject, 0.5f);
+    }
+    public void Mau_HienTai()
+    {
 
+        if (HP_Slider.value <= 0)
+        {
+            isAttacking = false;
+            live = false;
+            Die();
+        }
     }
 
     void BanDan()

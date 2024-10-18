@@ -37,10 +37,11 @@ public class Enemy_Manager : MonoBehaviour
             ttE.TocDoBan = float.Parse(cols[5]);
             ttE.TamBan = float.Parse(cols[6]);
             listTTE.Add(ttE);
-
-            TableObject list = new TableObject(ttE.Id, ttE.Linh, ttE.Hp, ttE.Dmg, ttE.TocDoChay, ttE.TocDoBan, ttE.TamBan);
-            data.tableObjects.Add(list);
-
+            if (data.tableObjects.Count < listTTE.Count)
+            {
+                TableObject list = new TableObject(ttE.Id, ttE.Linh, ttE.Hp, ttE.Dmg, ttE.TocDoChay, ttE.TocDoBan, ttE.TamBan);
+                data.tableObjects.Add(list);
+            }
         }
     }
 

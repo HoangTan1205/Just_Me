@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Linh
+  - AmThanh
   layers:
   - Default
   - TransparentFX

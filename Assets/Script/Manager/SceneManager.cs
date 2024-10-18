@@ -11,9 +11,13 @@ public class SceneManager : MonoBehaviour
 {
     public List<ThongTin> listTT = new List<ThongTin>();
     public Scr_Table_Object data;
+    public Scr_User_Login u_login;
+    public AudioSource[] audioSource;
     //public List<Scr_Table_Object.TableObject> ListData;
     void Awake()
     {
+        
+        CheckSound();
 
         //  if (FindObjectsOfType<SceneManager>().Length > 1)
         //  {
@@ -30,7 +34,10 @@ public class SceneManager : MonoBehaviour
         //ListData = new List<Scr_Table_Object.TableObject>();
         LoadTextLinh("Linh");
     }
-
+    private void Update()
+    {
+        CheckSound();
+    }
     public void LoadTextLinh(string path)
     {
         TextAsset loadText = Resources.Load<TextAsset>(path);
@@ -48,11 +55,28 @@ public class SceneManager : MonoBehaviour
             tt.TocDoBan = float.Parse(cols[5]);
             tt.TamBan = float.Parse(cols[6]);
             listTT.Add(tt);
-
-            TableObject list = new TableObject(tt.Id , tt.Linh,tt.Hp, tt.Dmg , tt.TocDoChay ,tt.TocDoBan ,tt.TamBan );
-            data.tableObjects.Add(list);
-
+            if (data.tableObjects.Count < listTT.Count)
+            {
+                TableObject list = new TableObject(tt.Id, tt.Linh, tt.Hp, tt.Dmg, tt.TocDoChay, tt.TocDoBan, tt.TamBan);
+                data.tableObjects.Add(list);
+            }
         }        
+    }
+
+    public void CheckSound()
+    {
+        audioSource = FindObjectsOfType<AudioSource>();
+        for (int i = 0; i < audioSource.Length; i++)
+        {
+            if (u_login.sound > 0)
+            {
+                audioSource[i].mute = false;
+            }
+            else
+            {
+                audioSource[i] .mute = true;
+            }
+        }
     }
 
     internal static object GetActiveScene()

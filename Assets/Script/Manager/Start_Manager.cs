@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using static Scr_Start;
 using static Scr_User_Login;
 public class Start_Manager : MonoBehaviour
@@ -19,10 +21,16 @@ public class Start_Manager : MonoBehaviour
     public TextMeshProUGUI LvUser;
     public TextMeshProUGUI hienTTDiemCao;
 
-    
+    public Toggle soundToggle;
+
+    // Tham chiếu tới AudioSource để điều khiển âm thanh
+    public AudioSource audioSource;
+
+    // Biến int để lưu trạng thái 1 hoặc 0
+    public int toggleValue;
     void Awake()
     {
-
+        audioSource = GetComponent<AudioSource>();
         CheckTK();
     
     }
@@ -30,8 +38,6 @@ public class Start_Manager : MonoBehaviour
     {
         file = "User";
         LoadTextLinh(file);
-
-        
 
     }
     private void CheckTK()
@@ -41,8 +47,13 @@ public class Start_Manager : MonoBehaviour
         {
             hienTTUserName.text = "Tên Đăng Nhập: " + u_login.userName;
             LvUser.text = "Màn Chơi Hiện Tại: " + u_login.levelUser.ToString();
-            hienTTDiemCao.text = "Điểm Cao: " + u_login.diemCao.ToString();         
+            hienTTDiemCao.text = "Điểm Cao: " + u_login.diemCao.ToString();
+            toggleValue = u_login.sound;
         }
+        UpdateToggleAndSound();
+        soundToggle.onValueChanged.AddListener(OnToggleChanged);
+
+
     }
     private void SetActiveMenu()
     {
@@ -58,6 +69,35 @@ public class Start_Manager : MonoBehaviour
             
         }
     }
+
+
+    void OnToggleChanged(bool isOn)
+    {
+        // Nếu Toggle bật, giá trị của biến là 1. Nếu tắt, giá trị là 0.
+        toggleValue = isOn ? 1 : 0;
+        u_login.sound = toggleValue;
+        // Cập nhật trạng thái âm thanh dựa trên toggleValue
+        UpdateSound();
+
+    }
+
+    // Hàm để cập nhật trạng thái âm thanh
+    void UpdateSound()
+    {
+        // Bật hoặc tắt âm thanh dựa trên giá trị của toggleValue
+        audioSource.mute = toggleValue == 0;
+    }
+
+    // Hàm để cập nhật cả trạng thái của Toggle và âm thanh
+    void UpdateToggleAndSound()
+    {
+        // Thiết lập trạng thái của Toggle dựa trên giá trị của toggleValue
+        soundToggle.isOn = toggleValue == 1;
+        
+        // Cập nhật trạng thái âm thanh
+        UpdateSound();
+    }
+
     public void LoadTextLinh(string path)
     {
         TextAsset loadText = Resources.Load<TextAsset>(path);

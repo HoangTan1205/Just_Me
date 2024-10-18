@@ -40,9 +40,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 405397577779183518}
     m_Modifications:
+    - target: {fileID: 4036835840850906598, guid: 69eff4f7f9dacc64984d9f39c021d25d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036835840850906598, guid: 69eff4f7f9dacc64984d9f39c021d25d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5327990710211153757, guid: 69eff4f7f9dacc64984d9f39c021d25d, type: 3}
       propertyPath: m_Name
       value: Linh_Xa_Thu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5327990710211153757, guid: 69eff4f7f9dacc64984d9f39c021d25d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7346674478917993319, guid: 69eff4f7f9dacc64984d9f39c021d25d, type: 3}
       propertyPath: m_AnchorMax.x

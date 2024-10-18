@@ -31,7 +31,6 @@ public class Carot : Linh_Manager
 
             if (healthBar != null)
             {
-
                 healthBar.TakeDamage(damage);  // Gọi hàm trừ máu khi va chạm
             }
 

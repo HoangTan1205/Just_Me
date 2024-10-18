@@ -29,8 +29,7 @@ public class Dan : Linh_Manager
             ThanhMau healthBar = collision.gameObject.GetComponentInChildren<ThanhMau>();
            
             if (healthBar != null)
-            {
-                
+            {             
                 healthBar.TakeDamage(damage);  // Gọi hàm trừ máu khi va chạm
             }
              

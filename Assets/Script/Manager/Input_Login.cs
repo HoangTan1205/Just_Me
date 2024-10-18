@@ -127,7 +127,5 @@ public class Input_Login : MonoBehaviour
         usernameField.text = "";
         passwordField.text = "";
         messageText.text = "";
-
     }
-
 }
