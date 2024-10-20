@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "DataUserLogin", menuName = ("ThongTin/Data"))]
+[CreateAssetMenu(fileName = "DataUserLogin", menuName = ("ThongTin/DataUserLogin"))]
 public class Scr_User_Login : ScriptableObject
 {
     public int idUser;

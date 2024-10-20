@@ -22,11 +22,7 @@ public class Start_Manager : MonoBehaviour
     public TextMeshProUGUI hienTTDiemCao;
 
     public Toggle soundToggle;
-
-    // Tham chiếu tới AudioSource để điều khiển âm thanh
     public AudioSource audioSource;
-
-    // Biến int để lưu trạng thái 1 hoặc 0
     public int toggleValue;
     void Awake()
     {
@@ -39,8 +35,10 @@ public class Start_Manager : MonoBehaviour
         file = "User";
         LoadTextLinh(file);
 
+        string test = PlayerPrefs.GetString("saveGame");
+
     }
-    private void CheckTK()
+    public void CheckTK()
     {
         SetActiveMenu();
         if (u_login.idUser != 0)
@@ -52,6 +50,12 @@ public class Start_Manager : MonoBehaviour
         }
         UpdateToggleAndSound();
         soundToggle.onValueChanged.AddListener(OnToggleChanged);
+
+        string abc = "asdfasdfsf";
+
+        //Luu
+        PlayerPrefs.SetString("saveGame", abc);
+
 
 
     }
@@ -73,28 +77,21 @@ public class Start_Manager : MonoBehaviour
 
     void OnToggleChanged(bool isOn)
     {
-        // Nếu Toggle bật, giá trị của biến là 1. Nếu tắt, giá trị là 0.
+
         toggleValue = isOn ? 1 : 0;
         u_login.sound = toggleValue;
-        // Cập nhật trạng thái âm thanh dựa trên toggleValue
         UpdateSound();
 
     }
 
-    // Hàm để cập nhật trạng thái âm thanh
     void UpdateSound()
     {
-        // Bật hoặc tắt âm thanh dựa trên giá trị của toggleValue
         audioSource.mute = toggleValue == 0;
     }
 
-    // Hàm để cập nhật cả trạng thái của Toggle và âm thanh
     void UpdateToggleAndSound()
     {
-        // Thiết lập trạng thái của Toggle dựa trên giá trị của toggleValue
-        soundToggle.isOn = toggleValue == 1;
-        
-        // Cập nhật trạng thái âm thanh
+        soundToggle.isOn = toggleValue == 1;      
         UpdateSound();
     }
 

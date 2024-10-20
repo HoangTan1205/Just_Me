@@ -22,9 +22,9 @@ public class Input_Login : MonoBehaviour
 
     private void Awake()
     {
-        hienTTUserName.text = "Tên Đăng Nhập: " + userLogin.userName;
-        LvUser.text = "Màn Chơi Hiện Tại: " + userLogin.levelUser.ToString();
-        hienTTDiemCao.text = "Điểm Cao: " + userLogin.diemCao.ToString();
+        //  hienTTUserName.text = "Tên Đăng Nhập: " + userLogin.userName;
+        //  LvUser.text = "Màn Chơi Hiện Tại: " + userLogin.levelUser.ToString();
+        //  hienTTDiemCao.text = "Điểm Cao: " + userLogin.diemCao.ToString();
     }
     void Start()
     {
@@ -50,6 +50,20 @@ public class Input_Login : MonoBehaviour
     {
         Menu.SetActive(true);
         Login.SetActive(false);
+    }
+    private void SetActiveMenu()
+    {
+        if (userLogin.idUser != 0)
+        {
+            Menu.SetActive(true);
+            Login.SetActive(false);
+        }
+        else
+        {
+            Menu.SetActive(false);
+            Login.SetActive(true);
+
+        }
     }
     private bool CheckInput(string username, string password)
     {
@@ -103,6 +117,7 @@ public class Input_Login : MonoBehaviour
             InforUser list = new InforUser(ThemID(), usernameField.text, passwordField.text, 1, 0,1);
             dataUser.List_User.Add(list);
             messageText.text = "Đăng Ký thành công! Đang tải dữ liệu...";
+            CheckInput(usernameField.text,passwordField.text);
         }
     }
 
