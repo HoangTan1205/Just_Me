@@ -188,7 +188,8 @@ MonoBehaviour:
   listTT: []
   data: {fileID: 11400000, guid: bb89d01ac51076146aa36648829c928a, type: 2}
   u_login: {fileID: 11400000, guid: fb8becd064fc6ca4ca34d74a8ffc3522, type: 2}
-  audioSource: {fileID: 5570806307052633923}
+  audioSource:
+  - {fileID: 0}
 --- !u!1 &112547251332898663
 GameObject:
   m_ObjectHideFlags: 0
@@ -5420,7 +5421,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

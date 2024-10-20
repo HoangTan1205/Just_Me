@@ -3483,9 +3483,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 810677961}
-        m_TargetAssemblyTypeName: Start_Manager, Assembly-CSharp
-        m_MethodName: CheckTK
+      - m_Target: {fileID: 1507777420}
+        m_TargetAssemblyTypeName: Input_Login, Assembly-CSharp
+        m_MethodName: DangKy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9188,9 +9188,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 810677961}
-        m_TargetAssemblyTypeName: Start_Manager, Assembly-CSharp
-        m_MethodName: CheckTK
+      - m_Target: {fileID: 1507777420}
+        m_TargetAssemblyTypeName: Input_Login, Assembly-CSharp
+        m_MethodName: DangNhap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

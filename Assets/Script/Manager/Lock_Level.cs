@@ -50,7 +50,6 @@ public class Lock_Level : MonoBehaviour
         for (int i = 0; i < levelButtons.Length; i++)
         {
             //UnityEngine.SceneManagement.SceneManager.LoadScene(i);
-
             int levelIndex = i; // Lưu chỉ số level để sử dụng trong sự kiện
             levelButtons[i].onClick.AddListener(() => UnityEngine.SceneManagement.SceneManager.LoadScene(levelIndex + 1));
         }

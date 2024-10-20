@@ -26,6 +26,7 @@ public class Start_Manager : MonoBehaviour
     public int toggleValue;
     void Awake()
     {
+        
         audioSource = GetComponent<AudioSource>();
         CheckTK();
     
@@ -40,21 +41,22 @@ public class Start_Manager : MonoBehaviour
     }
     public void CheckTK()
     {
-        SetActiveMenu();
+        //
         if (u_login.idUser != 0)
         {
             hienTTUserName.text = "Tên Đăng Nhập: " + u_login.userName;
             LvUser.text = "Màn Chơi Hiện Tại: " + u_login.levelUser.ToString();
             hienTTDiemCao.text = "Điểm Cao: " + u_login.diemCao.ToString();
             toggleValue = u_login.sound;
+            SetActiveMenu();
         }
         UpdateToggleAndSound();
         soundToggle.onValueChanged.AddListener(OnToggleChanged);
 
-        string abc = "asdfasdfsf";
+        // string abc = "asdfasdfsf";
 
         //Luu
-        PlayerPrefs.SetString("saveGame", abc);
+        // PlayerPrefs.SetString("saveGame", abc);
 
 
 
