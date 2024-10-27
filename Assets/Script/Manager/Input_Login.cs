@@ -116,7 +116,7 @@ public class Input_Login : MonoBehaviour
         else
         {
             messageText.text = "Đăng Ký thành công! Đang tải dữ liệu...";
-            InforUser list = new InforUser(ThemID(), usernameField.text, passwordField.text, 1, 0,1);
+            InforUser list = new InforUser(ThemID(), usernameField.text, passwordField.text, 1, 0,3);
             dataUser.List_User.Add(list);
             CheckInput(usernameField.text,passwordField.text);
         }

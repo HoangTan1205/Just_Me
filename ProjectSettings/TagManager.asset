@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - Linh
   - AmThanh
+  - Audio
+  - Tower
+  - Mergeable
   layers:
   - Default
   - TransparentFX

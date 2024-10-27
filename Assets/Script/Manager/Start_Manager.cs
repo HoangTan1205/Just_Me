@@ -21,13 +21,9 @@ public class Start_Manager : MonoBehaviour
     public TextMeshProUGUI LvUser;
     public TextMeshProUGUI hienTTDiemCao;
 
-    public Toggle soundToggle;
-    public AudioSource audioSource;
-    public int toggleValue;
     void Awake()
     {
         
-        audioSource = GetComponent<AudioSource>();
         CheckTK();
     
     }
@@ -47,12 +43,12 @@ public class Start_Manager : MonoBehaviour
             hienTTUserName.text = "Tên Đăng Nhập: " + u_login.userName;
             LvUser.text = "Màn Chơi Hiện Tại: " + u_login.levelUser.ToString();
             hienTTDiemCao.text = "Điểm Cao: " + u_login.diemCao.ToString();
-            toggleValue = u_login.sound;
             SetActiveMenu();
         }
-        UpdateToggleAndSound();
-        soundToggle.onValueChanged.AddListener(OnToggleChanged);
-
+        else
+        {
+            SetActiveMenu();
+        }
         // string abc = "asdfasdfsf";
 
         //Luu
@@ -77,25 +73,7 @@ public class Start_Manager : MonoBehaviour
     }
 
 
-    void OnToggleChanged(bool isOn)
-    {
 
-        toggleValue = isOn ? 1 : 0;
-        u_login.sound = toggleValue;
-        UpdateSound();
-
-    }
-
-    void UpdateSound()
-    {
-        audioSource.mute = toggleValue == 0;
-    }
-
-    void UpdateToggleAndSound()
-    {
-        soundToggle.isOn = toggleValue == 1;      
-        UpdateSound();
-    }
 
     public void LoadTextLinh(string path)
     {

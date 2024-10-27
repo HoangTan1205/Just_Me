@@ -17,7 +17,7 @@ public class SceneManager : MonoBehaviour
     void Awake()
     {
         
-        CheckSound();
+        // CheckSound();
 
         //  if (FindObjectsOfType<SceneManager>().Length > 1)
         //  {
@@ -36,7 +36,7 @@ public class SceneManager : MonoBehaviour
     }
     private void Update()
     {
-        CheckSound();
+        //CheckSound();
     }
     public void LoadTextLinh(string path)
     {
@@ -63,21 +63,21 @@ public class SceneManager : MonoBehaviour
         }        
     }
 
-    public void CheckSound()
-    {
-        audioSource = FindObjectsOfType<AudioSource>();
-        for (int i = 0; i < audioSource.Length; i++)
-        {
-            if (u_login.sound > 0)
-            {
-                audioSource[i].mute = false;
-            }
-            else
-            {
-                audioSource[i] .mute = true;
-            }
-        }
-    }
+    // public void CheckSound()
+    // {
+    //     audioSource = FindObjectsOfType<AudioSource>();
+    //     for (int i = 0; i < audioSource.Length; i++)
+    //     {
+    //         if (u_login.sound > 0)
+    //         {
+    //             audioSource[i].mute = false;
+    //         }
+    //         else
+    //         {
+    //             audioSource[i] .mute = true;
+    //         }
+    //     }
+    // }
 
     internal static object GetActiveScene()
     {

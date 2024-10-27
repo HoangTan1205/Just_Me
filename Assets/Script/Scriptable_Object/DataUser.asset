@@ -18,13 +18,13 @@ MonoBehaviour:
     Pass: tan123
     Level: 4
     DiemCao: 100
-    AmThanh: 1
+    AmThanh: 0
   - Id: 2
     UserName: htan
     Pass: htan123
     Level: 2
     DiemCao: 300
-    AmThanh: 1
+    AmThanh: 2
   - Id: 3
     UserName: admin
     Pass: admin123

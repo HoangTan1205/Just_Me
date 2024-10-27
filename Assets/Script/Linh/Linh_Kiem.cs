@@ -22,7 +22,7 @@ public class Linh_Kiem : Linh_Manager
     [SerializeField] private LayerMask enemyLayer; 
     [SerializeField] private bool isAttacking = false;
     [SerializeField] private bool live = true;
-    [SerializeField] private AudioSource HieuUngChem;
+    [SerializeField] private AudioManager sfx;
 
     
     private void Awake()
@@ -40,6 +40,8 @@ public class Linh_Kiem : Linh_Manager
 
         ThanhMau(hp_Max,HP_HienCo, HP_Slider);
         HP_HienCo = HP_Slider.value;
+
+        sfx = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     void Update()
@@ -81,7 +83,7 @@ public class Linh_Kiem : Linh_Manager
     public void Chem()
     {
         
-        HieuUngChem.PlayOneShot(HieuUngChem.clip);
+        sfx.PlaySFX(sfx.L_Kiem);
     }
     public void Mau_HienTai()
     {

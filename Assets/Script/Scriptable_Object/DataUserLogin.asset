@@ -17,4 +17,4 @@ MonoBehaviour:
   passwordUser: htan123
   levelUser: 2
   diemCao: 300
-  sound: 1
+  sound: 0
