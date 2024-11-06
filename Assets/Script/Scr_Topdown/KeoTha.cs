@@ -30,7 +30,7 @@ public class KeoTha : MonoBehaviour
             Merge mergeable = collider.GetComponent<Merge>();
             if (mergeable != null && mergeable.gameObject != gameObject)
             {
-                mergeable.Merges(gameObject); // Gọi hàm hợp nhất trong script Mergeable
+                mergeable.CheckForMerge();
                 merged = true; // Đánh dấu đã hợp nhất
                 break; // Dừng lại sau khi hợp nhất
             }

@@ -10,6 +10,9 @@ TagManager:
   - Audio
   - Tower
   - Mergeable
+  - Luoi
+  - TaoLinh
+  - ButtonTaoLinh
   layers:
   - Default
   - TransparentFX

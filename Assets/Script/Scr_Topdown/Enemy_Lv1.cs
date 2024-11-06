@@ -5,6 +5,9 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Enemy_Lv1 : MonoBehaviour, IDamageable
 {
+    public delegate void DeathDelegate();
+    public event DeathDelegate OnDeath;
+
     public Transform towerPosition;
     public Transform linhPosition;
     
@@ -19,7 +22,7 @@ public class Enemy_Lv1 : MonoBehaviour, IDamageable
     void Start()
     {
         damgeE = 1;
-        moveSpeed = 2;
+        moveSpeed = 1;
         currentHealth = 1;
         animator = GetComponent<Animator>();   // Lấy Animator từ enemy
         initialPosition = transform.parent.position;  // Lưu vị trí ban đầu
@@ -44,7 +47,7 @@ public class Enemy_Lv1 : MonoBehaviour, IDamageable
 
     void FindClosestLinh()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Linh");
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("TaoLinh");
         float minDistance = detectRange;
         linhPosition = null;
         foreach (GameObject enemy in enemies)
@@ -111,6 +114,7 @@ public class Enemy_Lv1 : MonoBehaviour, IDamageable
 
     private void Die()
     {
+        OnDeath?.Invoke();
         moveSpeed = 0;
         Animator ani = gameObject.GetComponent<Animator>();
         ani.SetTrigger("Die");

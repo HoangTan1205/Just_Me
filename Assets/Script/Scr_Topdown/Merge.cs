@@ -5,30 +5,48 @@ using UnityEngine;
 public class Merge : MonoBehaviour
 {
     public GameObject mergedPrefab; 
-    public float mergeDistance = 0.2f;
+    public float mergeRadius = 0.2f;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void CheckForMerge()
     {
-        Merges(other.gameObject);
-        // Kiểm tra xem đối tượng có thể hợp nhất không
-        if (other.CompareTag("Mergeable"))
+        Collider2D[] nearbyObjects = Physics2D.OverlapCircleAll(transform.position, mergeRadius);
+        List<Merge> mergeableObjects = new List<Merge>();
+
+        foreach (Collider2D collider in nearbyObjects)
         {
-            float distance = Vector3.Distance(transform.parent.position, other.gameObject.transform.position);
-            if (distance < mergeDistance)
+            Merge mergeable = collider.GetComponent<Merge>();
+            if (mergeable != null && mergeable != this)
             {
-                Merges(other.gameObject);
+                mergeableObjects.Add(mergeable);
             }
-            
+        }
+
+        if (mergeableObjects.Count >= 2) // Tổng cộng 3 đối tượng
+        {
+            PerformMerge(mergeableObjects);
         }
     }
 
-    public void Merges(GameObject other)
+    private void PerformMerge(List<Merge> mergeables)
     {
-        // Tạo đối tượng mới từ prefab
-        Instantiate(mergedPrefab, transform.position, Quaternion.identity);
+        // Tạo vị trí trung bình để sinh ra đối tượng hợp nhất
+        Vector3 spawnPosition = ( mergeables[0].transform.position + mergeables[1].transform.position) / 3;
 
-        // Xóa hai đối tượng cũ
+        // Sinh đối tượng hợp nhất
+        Instantiate(mergedPrefab, spawnPosition, Quaternion.identity);
+
+        // Xóa tất cả các đối tượng đã hợp nhất, bao gồm cả đối tượng này
         Destroy(gameObject);
-        Destroy(other);
+        foreach (var mergeable in mergeables)
+        {
+            Destroy(mergeable.gameObject);
+        }
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, mergeRadius);
+    }
+
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Linh_Lv1 : MonoBehaviour, IDamageable
 {
     public Transform target; // Điểm tham chiếu cho quân lính
-    public float detectRange = 10f; // Phạm vi phát hiện
+    public float detectRange = 3f; // Phạm vi phát hiện
     public float stopDistance = 5f; // Khoảng cách giữ khi tấn công
     public float moveSpeed = 2f;
     public GameObject bulletPrefab;
@@ -28,13 +28,13 @@ public class Linh_Lv1 : MonoBehaviour, IDamageable
         {
             float distance = Vector3.Distance(transform.position, target.position);
             CheckMat();
-            if (distance > stopDistance)
-            {
-                // Di chuyển về phía quân lính
-                Vector3 direction = (target.position - transform.position).normalized;
-                transform.position += direction * moveSpeed * Time.deltaTime;
-            }
-            else
+            //  if (distance > stopDistance)
+            //  {
+            //      // Di chuyển về phía quân lính
+            //      Vector3 direction = (target.position - transform.position).normalized;
+            //      transform.position += direction * moveSpeed * Time.deltaTime;
+            //  }
+            if(distance <= detectRange) 
             {
                 // Giữ khoảng cách và bắn
                 if (Time.time >= nextShootTime)
